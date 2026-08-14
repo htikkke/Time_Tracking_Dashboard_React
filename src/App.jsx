@@ -1,13 +1,22 @@
 import { useState } from "react";
 import timeData from "./data.json";
 
+import iconWork from "./images/icon-work.svg";
+import iconPlay from "./images/icon-play.svg";
+import iconStudy from "./images/icon-study.svg";
+import iconExercise from "./images/icon-exercise.svg";
+import iconSocial from "./images/icon-social.svg";
+import iconSelfCare from "./images/icon-self-care.svg";
+import iconEllipsis from "./images/icon-ellipsis.svg";
+import imageJeremy from "./images/image-jeremy.png";
+
 const cardTheme = {
-  Work: { bg: "bg-orange-300", icon: "/src/images/icon-work.svg" },
-  Play: { bg: "bg-blue-300", icon: "/src/images/icon-play.svg" },
-  Study: { bg: "bg-pink-300", icon: "/src/images/icon-study.svg" },
-  Exercise: { bg: "bg-green-300", icon: "/src/images/icon-exercise.svg" },
-  Social: { bg: "bg-purple-300", icon: "/src/images/icon-social.svg" },
-  "Self Care": { bg: "bg-yellow-300", icon: "/src/images/icon-self-care.svg" },
+  Work: { bg: "bg-orange-300", icon: iconWork },
+  Play: { bg: "bg-blue-300", icon: iconPlay },
+  Study: { bg: "bg-pink-300", icon: iconStudy },
+  Exercise: { bg: "bg-green-300", icon: iconExercise },
+  Social: { bg: "bg-purple-300", icon: iconSocial },
+  "Self Care": { bg: "bg-yellow-300", icon: iconSelfCare },
 };
 
 export default function App() {
@@ -24,7 +33,8 @@ export default function App() {
         <div className="row-span-2 bg-navy-900 rounded-b-2xl max-[430px]:row-span-1">
           <div className="bg-purple-600 rounded-2xl flex flex-col gap-12 px-10 pt-10 pb-14 max-[1025px]:p-5 max-[430px]:flex-row">
             <img
-              src="./images/image-jeremy.png"
+              src={imageJeremy}
+              alt="Jeremy Robson"
               className="w-20 h-20 border-3 border-white rounded-full"
             />
             <div className="flex flex-col gap-4">
@@ -92,8 +102,8 @@ export default function App() {
                 className={`${cardTheme[item.title].bg} flex justify-end rounded-t-2xl`}
               >
                 <img
-                  src={cardTheme[item.title].icon}
-                  alt={cardTheme[item.title]}
+                  src={cardTheme.icon}
+                  alt={item.title}
                   className="relative z-0"
                 />
               </div>
@@ -107,7 +117,8 @@ export default function App() {
                 <div className="flex items-center justify-between">
                   <p className="font-rubik text-lg text-white">{item.title}</p>
                   <img
-                    src="./images/icon-ellipsis.svg"
+                    src={iconEllipsis}
+                    alt="more options"
                     className="hover:brightness-0 hover:invert cursor-pointer"
                   />
                 </div>
