@@ -1,39 +1,29 @@
 import { useState } from "react";
 import timeData from "./data.json";
 
-import iconWork from "./images/icon-work.svg";
-import iconPlay from "./images/icon-play.svg";
-import iconStudy from "./images/icon-study.svg";
-import iconExercise from "./images/icon-exercise.svg";
-import iconSocial from "./images/icon-social.svg";
-import iconSelfCare from "./images/icon-self-care.svg";
-import iconEllipsis from "./images/icon-ellipsis.svg";
-import imageJeremy from "./images/image-jeremy.png";
-
 const cardTheme = {
-  Work: { bg: "bg-orange-300", icon: iconWork },
-  Play: { bg: "bg-blue-300", icon: iconPlay },
-  Study: { bg: "bg-pink-300", icon: iconStudy },
-  Exercise: { bg: "bg-green-300", icon: iconExercise },
-  Social: { bg: "bg-purple-300", icon: iconSocial },
-  "Self Care": { bg: "bg-yellow-300", icon: iconSelfCare },
+  Work: { bg: "bg-orange-300", icon: "./images/icon-work.svg" },
+  Play: { bg: "bg-blue-300", icon: "./images/icon-play.svg" },
+  Study: { bg: "bg-pink-300", icon: "./images/icon-study.svg" },
+  Exercise: { bg: "bg-green-300", icon: "./images/icon-exercise.svg" },
+  Social: { bg: "bg-purple-300", icon: "./images/icon-social.svg" },
+  "Self Care": { bg: "bg-yellow-300", icon: "./images/icon-self-care.svg" },
 };
 
 export default function App() {
   const [timeState, setTimeState] = useState("weekly");
+
   return (
-    // main-container
     <div
       id="main-container"
       className="w-full h-screen bg-navy-950 flex items-center justify-center max-[430px]:h-auto"
     >
-      {/* grid-container */}
       <div className="w-3/4 h-3/4 grid grid-cols-4 grid-rows-2 gap-5 max-[770px]:w-full max-[770px]:m-2 max-[430px]:h-auto max-[430px]:grid-cols-1 max-[430px]:grid-rows-7 max-[430px]:m-4">
-        {/* container-1 */}
+        {/* Profile Card */}
         <div className="row-span-2 bg-navy-900 rounded-b-2xl max-[430px]:row-span-1">
           <div className="bg-purple-600 rounded-2xl flex flex-col gap-12 px-10 pt-10 pb-14 max-[1025px]:p-5 max-[430px]:flex-row">
             <img
-              src={imageJeremy}
+              src="./images/image-jeremy.png"
               alt="Jeremy Robson"
               className="w-20 h-20 border-3 border-white rounded-full"
             />
@@ -82,7 +72,8 @@ export default function App() {
             </p>
           </div>
         </div>
-        {/* other 2-7 containers */}
+
+        {/* Data Cards */}
         {timeData.map((item, index) => {
           const currentHours = item.timeframes[timeState].current;
           const previousHours = item.timeframes[timeState].previous;
@@ -102,7 +93,7 @@ export default function App() {
                 className={`${cardTheme[item.title].bg} flex justify-end rounded-t-2xl`}
               >
                 <img
-                  src={cardTheme.icon}
+                  src={cardTheme[item.title].icon}
                   alt={item.title}
                   className="relative z-0"
                 />
@@ -117,7 +108,7 @@ export default function App() {
                 <div className="flex items-center justify-between">
                   <p className="font-rubik text-lg text-white">{item.title}</p>
                   <img
-                    src={iconEllipsis}
+                    src="./images/icon-ellipsis.svg"
                     alt="more options"
                     className="hover:brightness-0 hover:invert cursor-pointer"
                   />
@@ -128,14 +119,14 @@ export default function App() {
                     className="text-white text-5xl font-rubik font-light"
                   >
                     {currentHours}
-                    {currentHours === "1" ? "hr" : "hrs"}
+                    {currentHours === 1 ? "hr" : "hrs"}
                   </p>
                   <p
                     id="previous-work"
                     className="font-rubik text-base text-white opacity-60 max-[770px]:text-sm"
                   >
                     {getTimeLabel()} - {previousHours}
-                    {previousHours === "1" ? "hr" : "hrs"}
+                    {previousHours === 1 ? "hr" : "hrs"}
                   </p>
                 </div>
               </div>
