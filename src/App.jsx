@@ -97,7 +97,13 @@ export default function App() {
                   className="relative z-0"
                 />
               </div>
-              <div className="bg-navy-900 rounded-2xl p-5 -mt-5 relative z-10 flex flex-col gap-10 max-[1025px]:p-3 group-hover:bg-hover-color">
+              <div
+                className={`bg-navy-900 rounded-2xl p-5 relative z-10 flex flex-col gap-10 max-[1025px]:p-3 group-hover:bg-hover-color ${
+                  item.title === "Social"
+                    ? "-mt-7 max-[1025px]:-mt-11"
+                    : "-mt-3"
+                }`}
+              >
                 <div className="flex items-center justify-between">
                   <p className="font-rubik text-lg text-white">{item.title}</p>
                   <img
@@ -115,7 +121,7 @@ export default function App() {
                   </p>
                   <p
                     id="previous-work"
-                    className="font-rubik text-base text-white opacity-60"
+                    className="font-rubik text-base text-white opacity-60 max-[770px]:text-sm"
                   >
                     {getTimeLabel()} - {previousHours}
                     {previousHours === "1" ? "hr" : "hrs"}
