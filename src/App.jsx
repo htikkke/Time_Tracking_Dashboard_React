@@ -24,7 +24,7 @@ export default function App() {
         <div className="row-span-2 bg-navy-900 rounded-b-2xl max-[430px]:row-span-1">
           <div className="bg-purple-600 rounded-2xl flex flex-col gap-12 px-10 pt-10 pb-14 max-[1025px]:p-5 max-[430px]:flex-row">
             <img
-              src="/src/images/image-jeremy.png"
+              src="./images/image-jeremy.png"
               className="w-20 h-20 border-3 border-white rounded-full"
             />
             <div className="flex flex-col gap-4">
@@ -107,7 +107,7 @@ export default function App() {
                 <div className="flex items-center justify-between">
                   <p className="font-rubik text-lg text-white">{item.title}</p>
                   <img
-                    src="/src/images/icon-ellipsis.svg"
+                    src="./images/icon-ellipsis.svg"
                     className="hover:brightness-0 hover:invert cursor-pointer"
                   />
                 </div>
